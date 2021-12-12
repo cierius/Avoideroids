@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Asteroid_Spawner.gd" type="Script" id=1]
+
+[node name="Asteroid_Spawner" type="Node"]
+pause_mode = 1
+script = ExtResource( 1 )
+spawn_freq = 5.0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Avoid Those Roids!.wav-80cf4206adf78e092e843c55dd2bd58c.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/Avoid Those Roids!.wav"
+dest_files=[ "res://.import/Avoid Those Roids!.wav-80cf4206adf78e092e843c55dd2bd58c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=1

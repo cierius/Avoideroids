@@ -1,0 +1,206 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://Scripts/Diff_Text.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Diff_Arrow.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Quit_Button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Start_Game_Button.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Fonts/Main_Font.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Assets/Sprites/Buttons/Button_hover.PNG" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/Buttons/Arrow_hover.PNG" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/Buttons/Arrow_unpressed.PNG" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/Buttons/Button_pressed.PNG" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/Buttons/Arrow_pressed.PNG" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/Buttons/Button_unpressed.PNG" type="Texture" id=11]
+[ext_resource path="res://Scenes/Settings_Panel.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/Sprites/Buttons/Gear_pressed.PNG" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/Buttons/Gear_unpressed.PNG" type="Texture" id=14]
+[ext_resource path="res://Scripts/Options_Button.gd" type="Script" id=15]
+[ext_resource path="res://Scenes/M_HTP_Panel.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Credits_Panel.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scripts/Credits_Button.gd" type="Script" id=18]
+[ext_resource path="res://Scripts/HTP_Button.gd" type="Script" id=19]
+[ext_resource path="res://Assets/Audio/Button_Click.wav" type="AudioStream" id=20]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 9
+load_path = "res://.import/Arrow_unpressed.PNG-da8a0303246a739a1af902ac50ccfd42.stex"
+
+[sub_resource type="StreamTexture" id=2]
+flags = 9
+load_path = "res://.import/Arrow_pressed.PNG-c3aae8bf4b121c2845adf6cd58473cc2.stex"
+
+[sub_resource type="StreamTexture" id=3]
+flags = 9
+load_path = "res://.import/Arrow_hover.PNG-a9b33e7e1b919855c583ab48632099b4.stex"
+
+[node name="Menu" type="Node2D"]
+scale = Vector2( 2, 2 )
+
+[node name="Quit_Button" parent="." instance=ExtResource( 3 )]
+margin_left = 183.014
+margin_top = 250.0
+margin_right = 333.014
+margin_bottom = 290.0
+
+[node name="Quit_Text" parent="Quit_Button" index="0"]
+margin_right = 149.0
+
+[node name="Credits_Button" type="TextureButton" parent="."]
+margin_left = 28.0135
+margin_top = 250.0
+margin_right = 178.014
+margin_bottom = 290.0
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 6 )
+expand = true
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Credits_Text" type="Label" parent="Credits_Button"]
+margin_right = 149.0
+margin_bottom = 41.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Credits"
+align = 1
+valign = 1
+
+[node name="Click" type="AudioStreamPlayer" parent="Credits_Button"]
+stream = ExtResource( 20 )
+bus = "SFX"
+
+[node name="HTP_Button" type="TextureButton" parent="."]
+margin_left = 338.014
+margin_top = 250.0
+margin_right = 488.014
+margin_bottom = 290.0
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 6 )
+expand = true
+script = ExtResource( 19 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="HTP_Button" type="Label" parent="HTP_Button"]
+margin_right = 149.0
+margin_bottom = 41.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "How-To-Play"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Click" type="AudioStreamPlayer" parent="HTP_Button"]
+stream = ExtResource( 20 )
+bus = "SFX"
+
+[node name="Start_Game_Button" parent="." instance=ExtResource( 4 )]
+margin_left = 183.014
+margin_top = 100.0
+margin_right = 333.014
+margin_bottom = 140.0
+skip_cd = false
+
+[node name="Difficulty" type="TextureRect" parent="."]
+margin_left = 195.514
+margin_top = 145.0
+margin_right = 323.514
+margin_bottom = 177.0
+texture = ExtResource( 11 )
+expand = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Diff_Arrow_Left" type="TextureButton" parent="Difficulty"]
+margin_left = -5.0
+margin_right = 27.0
+margin_bottom = 32.0
+rect_scale = Vector2( -1, 1 )
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 7 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Click" type="AudioStreamPlayer" parent="Difficulty/Diff_Arrow_Left"]
+stream = ExtResource( 20 )
+bus = "SFX"
+
+[node name="Diff_Arrow_Right" type="TextureButton" parent="Difficulty"]
+margin_left = 133.0
+margin_right = 165.0
+margin_bottom = 32.0
+texture_normal = SubResource( 1 )
+texture_pressed = SubResource( 2 )
+texture_hover = SubResource( 3 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Click" type="AudioStreamPlayer" parent="Difficulty/Diff_Arrow_Right"]
+stream = ExtResource( 20 )
+bus = "SFX"
+
+[node name="Diff_Text" type="Label" parent="Difficulty"]
+margin_right = 128.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Medium"
+align = 1
+valign = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings_Panel" parent="." instance=ExtResource( 12 )]
+visible = false
+position = Vector2( 5.23157, 79.7788 )
+
+[node name="Options_Button" type="TextureButton" parent="."]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 37.0
+margin_bottom = 37.0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 13 )
+expand = true
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HTP_Panel" parent="." instance=ExtResource( 16 )]
+visible = false
+position = Vector2( 388, 180 )
+scale = Vector2( 2, 2 )
+
+[node name="Credits_Panel" parent="." instance=ExtResource( 17 )]
+visible = false
+position = Vector2( 128, 180 )
+scale = Vector2( 2, 2 )
+[connection signal="button_up" from="Credits_Button" to="Credits_Button" method="_on_button_up"]
+[connection signal="button_up" from="HTP_Button" to="HTP_Button" method="_on_button_up"]
+[connection signal="button_down" from="Difficulty/Diff_Arrow_Left" to="Difficulty/Diff_Arrow_Left" method="_on_button_down"]
+[connection signal="button_down" from="Difficulty/Diff_Arrow_Right" to="Difficulty/Diff_Arrow_Right" method="_on_button_down"]
+[connection signal="button_up" from="Options_Button" to="Options_Button" method="_on_button_up"]
+
+[editable path="Quit_Button"]
+
+[editable path="Start_Game_Button"]

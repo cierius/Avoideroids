@@ -1,0 +1,102 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Fonts/Main_Font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/Sprites/Buttons/Panel_Large.PNG" type="Texture" id=2]
+[ext_resource path="res://Scripts/Settings_Panel.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Audio/Button_Click.wav" type="AudioStream" id=4]
+
+[node name="Settings_Panel" type="Sprite"]
+position = Vector2( 10, 520 )
+scale = Vector2( 1.75, 1 )
+z_index = -1
+texture = ExtResource( 2 )
+centered = false
+script = ExtResource( 3 )
+
+[node name="SFX_Vol_Slider" type="HSlider" parent="."]
+margin_left = 45.897
+margin_top = 30.0
+margin_right = 145.897
+margin_bottom = 50.0
+rect_scale = Vector2( 0.5, 1 )
+max_value = 10.0
+tick_count = 10
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Music_Vol_Slider" type="HSlider" parent="."]
+margin_left = 45.897
+margin_top = 5.0
+margin_right = 145.897
+margin_bottom = 25.0
+rect_scale = Vector2( 0.5, 1 )
+max_value = 10.0
+tick_count = 10
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Music" type="Label" parent="."]
+margin_left = 3.7053
+margin_top = 6.4126
+margin_right = 59.7053
+margin_bottom = 32.4126
+rect_scale = Vector2( 0.381371, 0.762742 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Music"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Music_Percent" type="Label" parent="."]
+margin_left = 27.7431
+margin_top = 8.7937
+margin_right = 83.7431
+margin_bottom = 34.7937
+rect_scale = Vector2( 0.31422, 0.62844 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "100%"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SFX" type="Label" parent="."]
+margin_left = 6.42656
+margin_top = 30.2236
+margin_right = 62.4266
+margin_bottom = 56.2236
+rect_scale = Vector2( 0.381371, 0.762742 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "SFX"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SFX_Percent" type="Label" parent="."]
+margin_left = 27.7431
+margin_top = 32.2079
+margin_right = 83.7431
+margin_bottom = 58.2079
+rect_scale = Vector2( 0.31422, 0.62844 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "100%"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "SFX"
+[connection signal="value_changed" from="SFX_Vol_Slider" to="." method="_on_SFX_Vol_value_changed"]
+[connection signal="value_changed" from="Music_Vol_Slider" to="." method="_on_Music_Vol_value_changed"]
